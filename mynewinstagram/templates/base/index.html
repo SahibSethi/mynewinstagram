@@ -1,9 +1,16 @@
 <!doctype html>
 <html>
     <head>
-        <title> My Home Page</title>
+        <title> {% block title %}My Home Page {% endblock %}</title>
+        {% block staticcontent %}{% endblock %}
     </head>
     <body>
+        {% block content %}
         <h1> Hi, {{ u.username }}. Long time no see. You last logged in on {{ u.last_login }} </h1>
+        <form action="/your-name/" method="post">
+            {{ nForm.as_table }}
+            <input type="submit" value="OK">
+        </form>
+        {% endblock %}
     </body>
 </html>

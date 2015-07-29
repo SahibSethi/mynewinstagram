@@ -1,0 +1,11 @@
+{% extends 'base/index.html' %}
+{% block title %} Send Message  {% endblock %}
+{% block content %}
+<a href="{% url 'home' id=1 %}">My Home </a>
+<form action="{% url 'sendmessage' %}" method="post">
+    {% csrf_token %}
+    {{ nForm.as_p }}
+    <input type="submit" name="submit" value="Please Send!">
+</form>
+{% endblock %}
+

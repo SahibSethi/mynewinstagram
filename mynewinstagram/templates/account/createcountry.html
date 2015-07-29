@@ -1,0 +1,14 @@
+{% extends 'base/index.html' %}
+{% block title %} Create Country  {% endblock %}
+{% block content %}
+{% if id %}
+    <form action="{% url 'country-edit' id=id %}" method="post">
+{% else %}
+    <form action="{% url 'country-create' %}" method="post">
+{% endif %}
+        {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" name="submit" value="Create Country!">
+</form>
+{% endblock %}
+
